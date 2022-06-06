@@ -17,6 +17,7 @@ li {
 }
 
 button {
+  cursor: pointer;
   padding: 10px 20px;
   font-weight: 600;
   border: none;

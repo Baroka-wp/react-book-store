@@ -1,13 +1,15 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Books from './components/Books';
 import InputBook from './components/InputBook';
+import { deleteBook } from './redux/books/books';
 
 const BooksContainer = () => {
-  const books = [
-    { id: 1, title: 'Atomic Habits', author: 'James Clear' },
-    { id: 2, title: 'Siddartha', author: 'Hermann Hesse' },
-    { id: 3, title: 'The effective Executive', author: 'Peter Drucker' },
-  ];
+  const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+  const handleClick = (id) => {
+    dispatch(deleteBook(id));
+  };
   return (
     <div className="display__books">
       {
@@ -16,6 +18,7 @@ const BooksContainer = () => {
             key={book.id}
             author={book.author}
             title={book.title}
+            handleClick={() => handleClick(book.id)}
           />
         ))
       }
