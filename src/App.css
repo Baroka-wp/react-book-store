@@ -46,7 +46,7 @@ button {
   max-width: 80%;
   display: flex;
   flex-direction: column;
-  margin: 4rem auto;
+  margin: 6rem auto;
   gap: 20px;
 }
 
@@ -74,6 +74,9 @@ button {
 }
 
 .navigation {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: #fff;
   padding: 5px 0;
 }
@@ -115,6 +118,17 @@ button {
 
 .display__category {
   position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loadingMsg {
+  color: #c70372;
+}
+
+.spiner {
+  position: relative;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
