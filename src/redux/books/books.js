@@ -1,24 +1,45 @@
-const ADD_BOOK = 'ADD_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
+import {
+  DELETE_BOOK,
+  FETCH_BOOK_FAILLED,
+  FETCH_BOOK_SUCCESS,
+  FETCH_REQUEST,
+  POST_BOOK,
+} from '../../api/ApiHelpers';
 
-export const addBook = (payload) => ({ type: ADD_BOOK, payload });
-export const deleteBook = (payload) => ({ type: REMOVE_BOOK, payload });
+const initialState = {
+  items: [],
+  loading: false,
+  error: null,
+};
 
-const books = [
-  { id: 1, title: 'Atomic Habits', author: 'James Clear' },
-  { id: 2, title: 'Siddartha', author: 'Hermann Hesse' },
-  { id: 3, title: 'The effective Executive', author: 'Peter Drucker' },
-];
-
-const bookReducer = (state = books, action) => {
+const bookReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REMOVE_BOOK:
-      return [...state].filter((s) => s.id !== action.payload);
-    case ADD_BOOK:
-      return [
+    case FETCH_REQUEST:
+      return { ...state, loading: true };
+    case FETCH_BOOK_SUCCESS:
+      return {
         ...state,
-        action.payload,
-      ];
+        items: action.payload,
+        loading: false,
+      };
+    case FETCH_BOOK_FAILLED:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    case DELETE_BOOK:
+      return {
+        ...state,
+        items: [...state.items].filter((s) => s.item_id !== action.payload),
+        loading: false,
+      };
+    case POST_BOOK:
+      return {
+        ...state,
+        items: [...state.items, action.payload],
+        loading: false,
+      };
     default:
       return state;
   }

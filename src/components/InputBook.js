@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { postBook } from '../api/ApiHelpers';
 
 const InputBook = () => {
   const bookTitle = useRef();
@@ -10,10 +10,11 @@ const InputBook = () => {
 
   const handleAddBook = (e) => {
     e.preventDefault();
-    dispatch(addBook({
-      id: uuidv4(),
+    dispatch(postBook({
+      item_id: uuidv4(),
       title: bookTitle.current.value,
       author: bookAuthor.current.value,
+      category: 'under construction',
     }));
     bookTitle.current.value = null;
     bookAuthor.current.value = null;
