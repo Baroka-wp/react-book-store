@@ -39,7 +39,8 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 25px;
+  flex-wrap: wrap;
+  padding: 15px 25px;
 }
 
 .display__books {
@@ -57,11 +58,12 @@ button {
 
 .input__book {
   display: flex;
+  width: 100%;
   gap: 12px;
 }
 
 .input__book input[type="text"] {
-  width: 37%;
+  width: 42%;
   padding: 0 10px;
 }
 
@@ -77,25 +79,34 @@ button {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 2;
   background-color: #fff;
   padding: 5px 0;
+}
+
+.navlinks {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 55%;
 }
 
 .topnav__bar {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
-  margin-left: 10%;
-  gap: 30px;
+  width: auto;
 }
 
 .topnav__bar ul {
+  text-align: left;
   display: flex;
   gap: 20px;
 }
 
 .topnav__bar ul li a {
+  font-size: 0.8rem;
   color: #4f4e4e;
 }
 
@@ -132,4 +143,95 @@ button {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.ImUser {
+  color: #0290ff;
+}
+
+.actionBtn {
+  display: flex;
+  gap: 1rem;
+}
+
+.actionBtn button {
+  padding: 0;
+  background: none;
+  color: #4386bf;
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+.actionBtn button:nth-child(2),
+.actionBtn button:last-child {
+  padding-left: 10px;
+  border-left: 1px solid #e8e8e8;
+}
+
+.bookTitle {
+  margin: 5px 0;
+}
+
+.bookCategory {
+  color: #e8e8e8;
+}
+
+.bookAuthor {
+  margin: 1px 0 20px 0;
+  color: #4386bf;
+}
+
+.percentage {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.progressCompleted {
+  margin: 15px 0 0 0;
+  font-size: 0.875rem;
+  color: #e8e8e8;
+}
+
+.currentChapter {
+  margin: 0 0 20px 0;
+}
+
+.bookDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+
+.bookDetails::after {
+  content: "";
+  height: 4.375rem;
+  width: 1px;
+  background: #e8e8e8;
+}
+
+.readingProgress {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.clircleWrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid #cdcbd0;
+  background: conic-gradient(#0290ff 270deg, #c6c8d6 70deg);
+}
+
+.clircleWrap::before {
+  content: "";
+  position: absolute;
+  height: 82%;
+  width: 82%;
+  background-color: white;
+  border-radius: 50%;
 }
