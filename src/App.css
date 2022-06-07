@@ -155,13 +155,18 @@ button {
 }
 
 .actionBtn button {
-  padding: 0;
+  padding: 0px;
   background: none;
   color: #4386bf;
   font-size: 0.875rem;
   font-weight: normal;
 }
 
+.actionBtn button:nth-child(2),
+.actionBtn button:last-child {
+  padding-left: 10px;
+  border-left: 1px solid #e8e8e8;
+}
 .bookTitle {
   margin: 5px 0;
 }
@@ -195,6 +200,13 @@ button {
   justify-content: space-between;
   align-items: center;
   width: 70%;
+}
+
+.bookDetails::after {
+  content: "";
+  height: 4.375rem;;
+  width: 1px;
+  background:#e8e8e8;;
 }
 
 .readingProgress {

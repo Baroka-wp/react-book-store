@@ -25,7 +25,7 @@ const Books = ({ author, title, handleClick }) => (
       </div>
     </div>
 
-    <div>
+    <div className="progress">
       <p className="progressCompleted">CURRENT CHAPTER</p>
       <p className="currentChapter">Chapter 17</p>
       <button
