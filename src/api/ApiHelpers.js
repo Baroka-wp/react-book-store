@@ -43,6 +43,7 @@ export const postBook = (body) => async (dispatch) => {
 };
 
 export const deleteBook = (itemId) => async (dispatch) => {
+  dispatch(fetchBooksRequest());
   try {
     await axios.delete(`${url}/${itemId}`);
     dispatch(deleteBookSuccess(itemId));
